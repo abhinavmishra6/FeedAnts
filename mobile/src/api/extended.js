@@ -1,0 +1,15 @@
+import { api } from './client';
+export const home = () => api.get('/home').then((r) => r.data);
+export const competitions = (params) => api.get('/competitions', { params }).then((r) => r.data);
+export const me = () => api.get('/users/me').then((r) => r.data);
+export const referral = (competitionId) => api.get('/referrals/me', { params: competitionId ? { competitionId } : undefined }).then((r) => r.data);
+export const myRegistration = (id) => api.get(`/competitions/${id}/registrations/me`).then((r) => r.data);
+export const competitionRegistrations = (id, params) => api.get(`/competitions/${id}/registrations`, { params }).then((r) => r.data);
+export const participants = (id) => api.get(`/competitions/${id}/participants/me`).then((r) => r.data);
+export const addParticipant = (id, body) => api.post(`/competitions/${id}/participants`, body).then((r) => r.data);
+export const updateParticipant = (id, participantId, body) => api.patch(`/competitions/${id}/participants/${participantId}`, body).then((r) => r.data);
+export const deleteParticipant = (id, participantId) => api.delete(`/competitions/${id}/participants/${participantId}`);
+export const allParticipants = (id, params) => api.get(`/competitions/${id}/participants`, { params }).then((r) => r.data);
+export const participantDetails = (id, participantId) => api.get(`/competitions/${id}/participants/${participantId}`).then((r) => r.data);
+export const submissions = (id) => api.get(`/competitions/${id}/submissions`).then((r) => r.data);
+export const uploadSubmission = (id, asset, onUploadProgress) => { const form = new FormData(); form.append('submission', { uri: asset.uri, name: asset.name || 'submission.mp4', type: asset.mimeType || 'video/mp4' }); return api.post(`/competitions/${id}/submissions`, form, { headers: { 'Content-Type': 'multipart/form-data' }, onUploadProgress }).then((r) => r.data); };
