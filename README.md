@@ -88,4 +88,16 @@ Use Postman to register two users and call the endpoints. The API returns `409` 
 
 ## Production improvements
 
-Add payment-webhook idempotency, audit logs, observability, private object storage, pagination, RBAC, OpenAPI documentation, integration tests using a MongoDB replica set, and CI.
+* Add payment-webhook idempotency, audit logs, observability, private object storage, pagination, RBAC, OpenAPI documentation, integration tests using a MongoDB replica set, and CI.
+* Managed MongoDB with replica sets and optimized indexes
+* Refresh-token rotation and secure token storage
+* API rate limiting and centralized validation
+* Structured logging, monitoring, and error handling
+* Automated unit, integration, and E2E testing
+* CI/CD pipeline and database migrations
+* Secure media storage using CDN/object storage
+* Production payment integration with webhook verification
+* Load testing and scalability monitoring
+* Secure secrets management, HTTPS, and production CORS
+* Admin/organizer audit logging
+
